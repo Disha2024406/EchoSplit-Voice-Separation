@@ -1,0 +1,99 @@
+{
+  "theme_strategy": "Hybrid Light/Dark Mode. Dark Mode is the default and preferred state to maximize the aesthetic impact of Glassmorphism and cinematic mesh gradients. The UI relies on controlled translucency over abstract moving backgrounds to give the glass 'volume'.",
+  "typography": {
+    "headings": {
+      "family": "Outfit",
+      "weights": ["300", "500", "800"],
+      "usage": "Use tight letter spacing (tracking-tight or tracking-tighter). Avoid standard 'Bold' (700) where possible, prefer 300 for elegance or 800 for impact.",
+      "forbidden": ["Inter", "Roboto", "Open Sans", "Lato", "Space Grotesk"]
+    },
+    "body": {
+      "family": "IBM Plex Sans",
+      "weights": ["400", "500"],
+      "usage": "Clean, highly legible for dense dashboard data and transcriptions."
+    },
+    "mono": {
+      "family": "JetBrains Mono",
+      "usage": "Used for timestamps, confidence scores, processing stats, and data labels."
+    }
+  },
+  "colors": {
+    "archetype": "Cinematic Tech (Custom blending Luxury & High-Contrast)",
+    "dark_mode": {
+      "background": "Deep Obsidian (#0A0A0A) with underlying animated mesh gradients (Cyan #06B6D4 and Deep Pink #BE185D) to fuel the glassmorphism.",
+      "glass_surface": "bg-zinc-900/30",
+      "glass_border": "border-white/10",
+      "text_primary": "text-zinc-100",
+      "text_secondary": "text-zinc-400"
+    },
+    "light_mode": {
+      "background": "Off-White (#F8F9FA) with pastel mesh gradients (Soft Sky Blue and Pale Peach).",
+      "glass_surface": "bg-white/60",
+      "glass_border": "border-black/5",
+      "text_primary": "text-zinc-900",
+      "text_secondary": "text-zinc-500"
+    },
+    "accent": {
+      "primary": "Cyan (Tailwind: cyan-500) - used for the main 'Try EchoSplit' CTA and active audio waveforms.",
+      "secondary": "Rose/Pink (Tailwind: rose-500) - used for AI processing indicators and translation highlights.",
+      "forbidden": ["#7351B7", "teal green (#1B93A4)"]
+    },
+    "contrast_rules": "Always explicitly set text color on hover. Focus states must have HIGHER contrast. Text inside glass components must maintain minimum 4.5:1 APCA contrast ratio."
+  },
+  "visual_enhancers": {
+    "glassmorphism": {
+      "blur": "backdrop-blur-xl or backdrop-blur-2xl",
+      "saturation": "backdrop-saturate-150 (crucial for the Apple-like crystal effect)",
+      "border": "1px delicate inner stroke is MANDATORY (e.g. border-white/10 in dark mode)",
+      "shadow": "shadow-[0_8px_32px_rgba(0,0,0,0.12)]",
+      "rule": "Do not stack more than two blurred layers. Keep critical forms/inputs on solid or near-solid backgrounds for accessibility."
+    },
+    "motion": {
+      "library": "framer-motion",
+      "usage": "Micro-interactions on all hover states. Staggered entrance animations for bento grids. Live AI pipeline MUST use layout animations to show progress transitioning from one node to the next.",
+      "pipeline_animation": "Use pulsing glow effects for the 'active' pipeline stage. Completed stages get a solid accent color and a checkmark."
+    }
+  },
+  "grids_and_layouts": {
+    "general_spacing": "Generous spacing. Use p-8 or p-12 for main sections. Containers with borders MUST have internal padding.",
+    "hero_section": "Massive typography (text-6xl+). Asymmetrical mesh background. ONLY ONE BUTTON: 'Try EchoSplit' centered or optically aligned to the left.",
+    "dashboard_bento": "Use MODE B (High Density Grid) for the Dashboard stats. grid-cols-1 md:grid-cols-4 gap-6. Summary metrics take col-span-1, primary charts/history take col-span-3.",
+    "processing_pipeline": "Flex column or grid layout showcasing 8 steps. Use a glowing 'Tracing Beam' (animated border or line) connecting the steps: Uploading \u2192 Extract \u2192 Separation \u2192 Speaker ID \u2192 Recognition \u2192 Transcript \u2192 Summary \u2192 Translation \u2192 Results.",
+    "results_dashboard": "Top row: Audio Waveform (col-span-full). Middle row: Speaker Cards (col-span-1) + Transcripts (col-span-2). Bottom row: Summary & Translations + Downloads."
+  },
+  "component_instructions": {
+    "buttons": "Pill-shaped (rounded-full). The primary CTA must be visually distinct, using the accent color or a subtle animated gradient border.",
+    "audio_player": "Custom UI using Shadcn sliders for seek bar, Phosphor icons for controls. Must display waveform.",
+    "speaker_cards": "Glassmorphism cards containing the speaker's generated avatar/icon, confidence score (in mono font), and an individual isolate audio player.",
+    "forms": "Login/Signup and Drag-Drop Upload must use solid or deeply tinted backgrounds (bg-zinc-950/80) inside the glass modal to ensure input text is readable. Never use native inputs, use Shadcn forms.",
+    "navigation": "Sticky glass header (z-50) with backdrop-blur-xl. Logo + Links + Login/Signup buttons."
+  },
+  "image_urls": [
+    {
+      "category": "Hero / Abstract Visual",
+      "url": "https://images.pexels.com/photos/27141312/pexels-photo-27141312.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "description": "Close-up of a digital audio interface displaying a vibrant sound wave. Use as hero background or pipeline background behind a heavy dark overlay."
+    },
+    {
+      "category": "Technology / AI Nodes",
+      "url": "https://images.pexels.com/photos/17483871/pexels-photo-17483871.png?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "description": "Elegant 3D visualization of neural networks. Use on the 'Technology' page or within the AI processing states."
+    },
+    {
+      "category": "About / Users",
+      "url": "https://images.unsplash.com/photo-1531482615713-2afd69097998?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1NzZ8MHwxfHNlYXJjaHwyfHx1bml2ZXJzaXR5JTIwc3R1ZGVudHMlMjBjb21wdXRlcnxlbnwwfHx8fDE3ODQ4ODQ1MTl8MA&ixlib=rb-4.1.0&q=85",
+      "description": "Woman and man sitting in front of monitor. Use for the 'About' page reflecting the university project origins."
+    }
+  ],
+  "universal_guidelines_for_main_agent": [
+    "INSTALLATION: Add '@phosphor-icons/react', 'framer-motion', 'clsx', 'tailwind-merge' via npm/yarn. Phosphor icons are mandatory for the high-end audio interface.",
+    "NO SLOP: Do not create generic centered layouts. Use asymmetrical alignments. Avoid simplistic linear gradients; use radial mesh gradients behind glass components.",
+    "GLASSMORPHISM RULE: Header, Cards, and Modals must have 'backdrop-blur-xl bg-white/5 border border-white/10' (in dark mode). Ensure content scrolling underneath is visible but strongly blurred.",
+    "Z-INDEX: Create depth through layered design elements. Ensure sticky headers are z-50 and dropdowns are z-50.",
+    "INTERACTIVITY: Every interaction needs a micro-animation. Buttons must have hover and active states (scale down slightly on click).",
+    "ACCESSIBILITY: Focus states must have high contrast rings. Include data-testid attributes on all interactive elements (e.g., data-testid='upload-button', data-testid='play-speaker-1').",
+    "THEME TOGGLE: Implement a functional Light/Dark mode toggle. Adjust the glass classes depending on the theme.",
+    "ICONS: Do NOT use emojis. Use Phosphor Icons for all UI elements (e.g., Play, Pause, Download, User, Settings, Waves).",
+    "SHADCN COMPONENTS: Use Shadcn components for complex logic (Dropdown, Dialog, Progress, Tabs, Table), but strip their default 'Vercel' look to match this cinematic glass theme."
+  ]
+}
