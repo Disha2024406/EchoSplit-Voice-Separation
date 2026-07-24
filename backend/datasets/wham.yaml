@@ -1,0 +1,12 @@
+name: WHAM!
+purpose: Real-world noise for robust source separation training
+homepage: http://wham.whisper.ai
+license: CC BY-NC 4.0
+root: /data/wham
+splits:
+  train: metadata/tr.csv
+  dev: metadata/cv.csv
+  test: metadata/tt.csv
+sample_rate: 16000
+notes: |
+  Combine with LibriMix (`mix_both`) for noise-augmented training.

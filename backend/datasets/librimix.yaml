@@ -1,0 +1,18 @@
+name: LibriMix
+purpose: Two/three-speaker separation, clean and noisy mixtures
+homepage: https://github.com/JorisCos/LibriMix
+license: CC BY 4.0
+root: /data/librimix
+splits:
+  train: metadata/mixture_train-100_mix_clean.csv
+  dev: metadata/mixture_dev_mix_clean.csv
+  test: metadata/mixture_test_mix_clean.csv
+sample_rate: 16000
+mix_types:
+  - mix_clean
+  - mix_both
+  - mix_single
+notes: |
+  Recreate with the official LibriMix generation scripts. Do not commit
+  audio to git. Update `root` to the parent directory containing the
+  generated wav folders and CSV metadata.

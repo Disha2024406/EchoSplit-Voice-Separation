@@ -1,0 +1,12 @@
+name: VoxCeleb1
+purpose: Speaker verification / identification benchmark
+homepage: https://www.robots.ox.ac.uk/~vgg/data/voxceleb/vox1.html
+license: Research only
+root: /data/voxceleb1
+splits:
+  dev: iden_split.txt
+  verification: veri_test.txt
+sample_rate: 16000
+notes: |
+  Use with the ECAPA-TDNN training pipeline. Extract embeddings and
+  build a per-speaker centroid store for identification at inference.
